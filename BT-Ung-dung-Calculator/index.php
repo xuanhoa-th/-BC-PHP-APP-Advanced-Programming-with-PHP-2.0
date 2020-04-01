@@ -20,57 +20,61 @@
 				<td><input type="" name="Fo"></td>
 			</tr>
 			<tr>
+				<td>Second operand:</td>
+				<td><input type="" name="So"></td>
+			</tr>
+			<tr>
 				<td>Operatoer:</td>
 				<td >
 					<!-- <span name="cong">+</span>
 					<span name="tru">-</span>
 					<span name="nhan">x</span>
 					<span name="chia">/</span> -->
-					<button type="text" name="cong">+</button>
-					<button type="text" name="tru">-</button>
-					<button type="text" name="nhan">x</button>
-					<button type="text" name="chia">/</button>
+					<!-- <button  name="cong">+</button>
+					<button  name="tru">-</button>
+					<button  name="nhan">x</button>
+					<button  name="chia">/</button> -->
 				</td>
 			</tr>
 			<tr>
-				<td>Second operand:</td>
-				<td><input type="" name="So"></td>
-			</tr>
-			<tr>
 				<td></td>
-				<td><button type="submit">Calculate</button></td>
+				<td><button type="submit">+</button></td>
 			</tr>
 		</table>
 	</form>
-	<h2>Result</h2>
-	<p></p>
-	</div>
+         
 
-	 <?php 
+         <?php 
         	if ($_SERVER["REQUEST_METHOD"] == "POST"){
         		$FirstOperand = $_POST["Fo"];
         		$SecondOperand = $_POST["So"];
-        		$cong = $_POST["cong"];
-        		$tru = $_POST["tru"];
-        		$nhan = $_POST["nhan"];
-        		$chia = $_POST["chia"];
-        		
-        		function calculate(){
-        			if($SecondOperand !=0){
-        				$cong = $FirstOperand + $SecondOperand;
-        				
-        		     }
+        		// $cong = $_POST["cong"];
+        		// $tru = $_POST["tru"];
+        		// $nhan = $_POST["nhan"];
+        		// $chia = $_POST["chia"];
+        		if($SecondOperand != 0){
+        			$cong = 0;
+        		    $cong =  $FirstOperand + $SecondOperand;
+        		} else {
+        			echo 'khong duoc bang o';
         		}
-        		// $oneYear = $investment +($investment * $rate/100);
-        		// $FutureValue = $oneYear*$years;
-
-        		// echo "<span>Investment Amount:</span>$".$investment."</br>";
-        		// echo " <span>Yearly Interest Rate:</span>%".$rate."</br>";
-        		// echo " <span>Number of Years:</span>".$years."</br>";
-        		// echo " <span>Future Value:</span>$".$FutureValue."</br>";
+        		
+        		// echo '<pre>';
+        		// 	print_r($_POST);
+        		// echo '</pre>';
+        		
+        		
+ 
         	}
          ?>
-         
+    <?php {  ?>
+	<h2>Result</h2>
+	<p><?php echo $cong ?></p> 
+	<!-- <p><?php echo $tru ?></p> 
+	<p><?php echo $nhan ?></p> 
+	<p><?php echo $chia ?></p>  -->
+	<?php } ?>
+	</div>
 	
 </body>
 </html>
