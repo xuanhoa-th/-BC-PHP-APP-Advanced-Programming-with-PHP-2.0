@@ -7,11 +7,39 @@
 <body>
 	<style type="text/css">
 		span{
-			background-color: #ffffff;
-			
+			background-color: #ffffff;	
 		}
 	</style>
-	<div class="container" style="background-color: aqua;position: absolute;margin-left: 30%; width: 300px; height: 300px">
+
+<?php 
+// echo '<pre>';
+// 	print_r($_POST);
+// echo '</pre>';
+$result = 0;
+if (isset($_POST['tinh']) ) {
+	$a = (!empty($_POST['Fo']))? $_POST['Fo'] : 0;
+	$b = (!empty($_POST['So']))? $_POST['So'] : 0;
+	$pt = $_POST['pt'];
+	switch ($pt) {
+		case '+':
+			$result = $a + $b; 
+			break;
+		case '-':
+			$result = $a - $b;
+			break;
+		case '*':
+			$result = $a * $b;
+			break;
+		case '/':
+			// $result = $a / $b;
+			if($b !== 0 ){
+				$result = $a / $b;
+			} else { echo $result = " khong duoc chia cho 0"; }
+			break;
+	} 
+}
+ ?>
+	<div class="container" style="background-color: aqua;position: absolute;margin-left: 30%; width: 400px; height: 300px">
 		<h2>Simple Calculator</h2>
 	<form method="post">
 		<table>
@@ -26,54 +54,24 @@
 			<tr>
 				<td>Operatoer:</td>
 				<td >
-					<!-- <span name="cong">+</span>
-					<span name="tru">-</span>
-					<span name="nhan">x</span>
-					<span name="chia">/</span> -->
-					<!-- <button  name="cong">+</button>
-					<button  name="tru">-</button>
-					<button  name="nhan">x</button>
-					<button  name="chia">/</button> -->
+					<input type="radio" name="pt" value="+" checked>Cộng
+					<input type="radio" name="pt" value="-">Trừ
+					<input type="radio" name="pt" value="*">Nhân
+					<input type="radio" name="pt" value="/">Chia
 				</td>
 			</tr>
 			<tr>
+				<td>Result:</td>
+				<?php { ?>
+				<td><input type="" name="" value=" <?php echo $result  ?> "></td>
+				<?php } ?>
+			</tr>
+			<tr>
 				<td></td>
-				<td><button type="submit">+</button></td>
+				<td><button type="submit" name="tinh">Submit</button></td>
 			</tr>
 		</table>
 	</form>
-         
-
-         <?php 
-        	if ($_SERVER["REQUEST_METHOD"] == "POST"){
-        		$FirstOperand = $_POST["Fo"];
-        		$SecondOperand = $_POST["So"];
-        		// $cong = $_POST["cong"];
-        		// $tru = $_POST["tru"];
-        		// $nhan = $_POST["nhan"];
-        		// $chia = $_POST["chia"];
-        		if($SecondOperand != 0){
-        			$cong = 0;
-        		    $cong =  $FirstOperand + $SecondOperand;
-        		} else {
-        			echo 'khong duoc bang o';
-        		}
-        		
-        		// echo '<pre>';
-        		// 	print_r($_POST);
-        		// echo '</pre>';
-        		
-        		
- 
-        	}
-         ?>
-    <?php {  ?>
-	<h2>Result</h2>
-	<p><?php echo $cong ?></p> 
-	<!-- <p><?php echo $tru ?></p> 
-	<p><?php echo $nhan ?></p> 
-	<p><?php echo $chia ?></p>  -->
-	<?php } ?>
 	</div>
 	
 </body>
