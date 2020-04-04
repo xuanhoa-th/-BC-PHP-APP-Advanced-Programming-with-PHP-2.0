@@ -12,9 +12,6 @@
 	</style>
 
 <?php 
-// echo '<pre>';
-// 	print_r($_POST);
-// echo '</pre>';
 $result = 0;
 if (isset($_POST['tinh']) ) {
 	$a = (!empty($_POST['Fo']))? $_POST['Fo'] : 0;

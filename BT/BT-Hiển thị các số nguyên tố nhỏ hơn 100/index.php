@@ -8,7 +8,7 @@
 	<?php 
 			function checkFrime($n){
 				if($n>= 2){
-					for ($i = 2; $i < sqrt($n) ; $i++) {
+					for ($i = 2; $i <= sqrt($n) ; $i++) {
 						if ($n%$i ==0) {
 							return false;
 						}
