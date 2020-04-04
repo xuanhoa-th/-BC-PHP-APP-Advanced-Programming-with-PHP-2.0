@@ -5,9 +5,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 	define("ADDITION", "+");
 	define("DEDUTION", "-");
 	define("DIVISION", "/");
+	define("MULTYPLY", "*");
 
-	$numberOne = $_REQUEST['numberOne'];
-    $numberTwo = $_REQUEST['numberTwo'];
+	$x = $_REQUEST['x'];
+    $y = $_REQUEST['y'];
     $operation = $_REQUEST['operation'];
 
 	$calculator = new Calulator();
@@ -15,27 +16,34 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 	switch ($operation) {
 		case ADDITION:
 			try {
-				echo $calculator -> sum($numberOne,$numberTwo);
+				echo $calculator -> sum($x,$y);
 			} catch (Exception $e) {
 				echo $e -> getMessage();
 			}
 			break;
 		 case DEDUTION:
                 try {
-                    echo $calculator->sub($numberOne, $numberTwo);
+                    echo $calculator->sub($x, $y);
                 } catch (Exception $e) {
                     echo $e->getMessage();
                 }
                 break;
           case DIVISION:
                 try {
-                    echo $calculator->divison($numberOne, $numberTwo);
+                    echo $calculator->divison($x, $y);
                 } catch (Exception $e) {
                     echo $e->getMessage();
                 }
                 break;
+        case MULTYPLY:
+            try {
+                echo $calculator->multiply($x, $y);
+            } catch (Exception $e) {
+                echo $e->getMessage();
+            }
+            break;
 		default:
-			echo 'chua nhap gi';
+			echo 'by zero';
 			break;
 	}
 }
@@ -48,21 +56,30 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
     <title>Document</title>
 </head>
 <body>
-<form action="" method="post">
+<div class="container">
+    <h3>Calulator</h3>
+    <form action="" method="post">
     So thu 1:
-    <input type="text" name="numberOne">
+    <input type="text" name="x">
+    <br>
+    Phép tính:
     <select id="" name="operation">
+        <option>Lựa chọn</option>
         <option value="+">+</option>
         <option value="-">-</option>
         <option value="/">/</option>
+        <option value="*">*</option>
     </select>
+    <br>
     So thu 2:
-    <input type="text" name="numberTwo">
+    <input type="text" name="y">
     <button type="submit">Ket qua</button>
 </form>
+</div>
 
 </body>
 </html>

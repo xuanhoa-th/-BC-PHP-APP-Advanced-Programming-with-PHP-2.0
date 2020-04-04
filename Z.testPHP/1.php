@@ -1,25 +1,31 @@
 <?php 
 	class Calulator
 	{
-		public function sum($numberOne, $numberTwo)
+		public function sum($x, $y)
 		{
-			if ($numberOne/2 + $numberTwo/2 >= PHP_INT_MAX / 2) {
-				throw new Exception("so nhap vao qua lon");
+			if ($x == 0 && $y == 0) {
+				throw new Exception("so nhap vao khong hop le");
 			}
-			return $numberTwo + $numberOne;
+			return $y + $x;
 		}
-		public function sub($numberOne,$numberTwo){
-			if ($numberOne/2 - $numberTwo/2 < PHP_INT_MAX/2) {
-				throw new Exception('so nhap vao qua nho');
+		public function sub($x,$y){
+			if ($x == 0 && $y == 0) {
+				throw new Exception('so nhap vao khong hop le');
 			}
-			return $numberOne-$numberTwo;
+			return $x-$y;
 		}
-		public function divison($numberOne,$numberTwo){
-			if ($numberTwo == 0) {
-				throw new Exception('so chia phai khac khong');
+		public function divison($x,$y){
+			if ($y == 0 && $x == 0) {
+				throw new Exception('so nhap vao khong hop le');
 			}
-			return $numberOne/$numberTwo;
+			return $x/$y;
 		}
+        public function multiply($x,$y){
+            if ($y == 0 && $x == 0) {
+                throw new Exception('so nhap vao khong hop le');
+            }
+            return $x*$y;
+        }
 
 	}
 
