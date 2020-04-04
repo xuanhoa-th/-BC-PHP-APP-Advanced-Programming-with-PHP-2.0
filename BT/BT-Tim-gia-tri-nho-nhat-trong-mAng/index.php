@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Tìm giá trị nhỏ nhất trong mảng</title>
+    <title>Tìm giá trị nhỏ nhất trong mảng n phan tu</title>
 </head>
 <body>
 <?php
@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 
 <form method="post">
-    Nhập vào dãy số nguyên:<input type="text" name="name" placeholder="a,b,c...">
+    Nhập vào dãy số nguyên n phần tử:<input type="text" name="name" placeholder="a,b,c...">
     <button type="submit">Số nhỏ nhất:</button>
 </form>
 </body>
