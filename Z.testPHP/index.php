@@ -1,21 +1,30 @@
 <?php
-class CustomException2 extends Exception {
-    public function orrorMessage(){
-        $errorMsg = 'Error on line '.$this->getLine().' in '.$this->getFile()
-            .': <b>'.$this->getMessage().'</b> is not a valid E-Mail address.';
-        return $errormsg;
+$firsList = ['john','jeny','jack'];
+$seconlist = ['adam','saba','sose','tom'];
+//foreach ($firsList as $key => $value){
+//    echo $key."=>". $value;
+//    echo "<br>";
+////    echo "<pre>";
+////        print_r($value);
+////    echo "</pre>";
+//}
+//foreach ($seconlist as $value){
+//    echo $value;
+//    echo "<br>";
+//}
+function check1($firsList)
+{
+    foreach ($firsList as $key => $val) {
     }
+    return $val;
 }
-$email = "someone@example.com";
-try {
-    if (filter_var($email,FILTER_VALIDATE_EMAIL) === FALSE){
-        throw new CustomException2($email);
+function check2($seconlist)
+{
+    foreach ($seconlist as $key => $value) {
     }
+    return $value;
 }
-catch (CustomException2 $e){
-    echo $e ->orrorMessage();
-}
-catch (Exception $e){
-    echo $e ->getMessage();
+if (check1($firsList)==check2($seconlist)){
+    echo $value;
 }
 ?>

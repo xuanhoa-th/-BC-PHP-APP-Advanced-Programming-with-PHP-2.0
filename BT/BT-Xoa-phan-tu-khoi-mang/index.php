@@ -4,8 +4,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $X = $_POST["name"];
     $key = array_search($X, $array);
     for ($i = $key; $i <= count($array); $i++) {
-           $array[$key] = $array[$key+1];
+          if ($X == $array[$i]) {
+              unset($array[$i]);
+          }
     }
+    
     echo '<pre>';
     print_r($array);
     echo '</pre>';

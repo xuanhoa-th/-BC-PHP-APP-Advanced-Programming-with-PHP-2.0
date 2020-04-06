@@ -6,6 +6,7 @@
 </head>
 <body>
 	<?php 
+	// $students = getAllUser("data.json");
 
 	// Kiểm tra định dạng email
 	function is_email($str) {
@@ -34,21 +35,12 @@
 			} elseif (!is_number($data['namePhone'])) {
 				$error['namePhone'] = ' *so dien thoai gom 10 ki tu';
 			}
-			//luu du lieu
-			// if(!$error) {
-			// 	echo ' du lieu da duoc luu';
-
-			// 	//................
-			// }
-			// else {
-			// 	echo ' du lieu bi loi, khong luu';
-			// }
 		}
 
 	 ?>
 
 	<h2>Registration Form</h2>
-	<form method="POST" >
+	<form method="POST" action="src/create.php" >
 		<fieldset style="width: 30%;height: auto;">
 			<legend>Details</legend>
 			<table>
