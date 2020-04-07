@@ -39,11 +39,11 @@ $students = getAllUser("data.json");
 	    </form>
 	</div>
 	<div class="col-md-7">
-				<form class="navbar-form navbar-left" role="search" method="post">
+				<form class="navbar-form navbar-left" role="search" method="post" action="src/seach.php">
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Search">
+						<input type="text" class="form-control" placeholder="Search" value="">
 					</div>
-					<button type="submit" class="btn btn-success">Tìm kiếm</button>
+					<a href="src/edit.php?index=<?php echo $index ?>"><button class="btn btn-success">Tìm kiếm</button></a>
 				</form>
 	<table class="table table-hover">
 		<thead>

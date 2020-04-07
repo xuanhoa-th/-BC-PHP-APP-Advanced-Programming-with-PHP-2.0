@@ -5,13 +5,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $key = array_search($X, $array);
     for ($i = $key; $i <= count($array); $i++) {
           if ($X == $array[$i]) {
-              unset($array[$i]);
+              $array[$i] =  $array[$i]+1 ;
+              echo '<pre>';
+              print_r($array);
+              echo '</pre>';
           }
     }
     
-    echo '<pre>';
-    print_r($array);
-    echo '</pre>';
+    
 }
 
  ?>

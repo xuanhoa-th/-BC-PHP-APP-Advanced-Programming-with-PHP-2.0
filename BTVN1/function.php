@@ -4,22 +4,15 @@ function getAllUser($filePath){
 };
 
 function store($data,$filePath){
-
 	$dataArr = getData($filePath);
-
-
 	array_push($dataArr,$data);
-	// var_dump($dataArr);
-	// die();
 	$dataNewJson = json_encode($dataArr);
 	file_put_contents($filePath,$dataNewJson);
 };
 
-function update($data,$filePath){
+function update($index,$data,$filePath){
 	$dataArr = getData($filePath);
-	array_push($dataArr,$data);
-	// var_dump($dataArr);
-	// die();
+	$dataArr[$index] = $data;
 	$dataNewJson = json_encode($dataArr);
 	file_put_contents($filePath,$dataNewJson);
 };
@@ -32,22 +25,24 @@ function getData($filePath){
 function deleteStudent($index,$filePath){
 	$dataArr = getData($filePath);
 	unset($dataArr[$index]);
-	// echo "<pre>";
-	// print_r($dataArr);
-	// echo "</pre>";
-	
 	$dataNewJson = json_encode($dataArr);
-	// var_dump($dataNewJson);
-	// die();
 	file_put_contents($filePath,$dataNewJson);
 
 };
 
 function getStudentByIndex($index,$filePath){
 	$dataArr = getData($filePath);
-	// var_dump($dataArr);
-	// die();
 	return $dataArr[$index];
+};
+function getStudentBySeach($key,$filePath){
+	$dataArr = getData($filePath);
+	$arr = [];
+	foreach ($dataArr as $item) {
+		if ($item->name == $key) {
+			array_push($arr,$item);
+		}
+	}
+	return $arr;
 };
 
 
