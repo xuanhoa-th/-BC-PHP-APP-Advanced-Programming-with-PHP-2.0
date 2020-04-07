@@ -8,12 +8,9 @@
 </head>
 <body>
 	<form action="view/matran.php" method="GET">
-		Nhap so dong:
-		<input type="text" name="rows">
-		nhap so cot:
-		<input type="text" name="columns">
+		Nhap vao do dai ma tran vuong:
+		<input type="text" name="size">
 		<button type="submit">hien thi ma tran VUONG</button>
-
 	</form>
 </body>
 </html>

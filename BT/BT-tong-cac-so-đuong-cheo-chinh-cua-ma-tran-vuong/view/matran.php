@@ -1,29 +1,31 @@
 <?php 
 if ($_SERVER['REQUEST_METHOD'] == "GET") {
-	$rows = $_REQUEST['rows'];
-	$columns = $_REQUEST['columns'];
+	$size = $_REQUEST['size'];
 };
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-	$Arritems = $_REQUEST['item'];
-	$rows = $_REQUEST['rows'];
-	$columns = $_REQUEST['columns'];
-	function findSum($arr){
-		for ($i = 0; $i <= count($arr) ; $i++) {
-			for ($j = 0; $j <= count($arr); $j++ ){
+	$size = $_REQUEST['size'];
+    $arr = [];
 
-			       var_dump($arr[$j]);
+    for ($n = 0; $n < $size; $n++){
+        $arr[$n] = [];
+        for ($m = 0 ; $m < $size ; $m++){
+            $arr[$n][$m] = $_REQUEST['item-'. $n .'-'. $m];
+        }
+    }
 
-//			    if ($arr[$i]==$arr[$j]){
-//			        $sum = $arr[$i][$j];
-//			        array_push($Sumarray,$sum);
-//			        var_dump($Sumarray);
-//                }
+	function sum($arr){
+        $sum = 0;
+		for ($i = 0; $i < count($arr) ; $i++) {
+			for ($j = 0; $j < count($arr[$i]); $j++ ){
+			    if ($i == $j){
+			        $sum += $arr[$i][$j];
+                }
             }
 		}
-//		return $Sumarray;
+		return $sum;
 	}
-	echo "tong la".findSum($Arritems);
-	
+	echo "tong la".sum($arr);
+
 }
 
 
@@ -38,10 +40,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
  <body>
  	<form method="POST">
  		<table>
- 			<?php for ($i = 0; $i < $rows ; $i++):?>
+ 			<?php for ($i = 0; $i < $size ; $i++):?>
  				<tr>
-				<?php for ($j = 0; $j < $columns ; $j++):?>
-				    <td><input type="text" name="item[][]"></td>
+				<?php for ($j = 0; $j < $size ; $j++):?>
+				    <td><input type="text" name="item-<?php echo $i.'-'.$j  ?>"></td>
  			    <?php endfor; ?>
  			    </tr>
  			<?php endfor; ?>
