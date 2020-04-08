@@ -23,10 +23,10 @@ for ($i = 0; $i < 10000; $i++) {
 
 $watch = new StopWatch();
 $watch->startTime();
-echo "Thoi gian bat dau: " . $watch->getStartTime() . "<br>";
+echo'Start time: '. $watch->getStartTime() . "<br>";
 
 selectionSortAscending($array);
 
 $watch->stopTime();
-echo "Thoi gian ket thuc: " . $watch->getEndTime() . "<br>";
-echo "Thoi gian thuc thi: " . $watch->getElapsedTime();
+echo "End time: " . $watch->getEndTime() . "<br>";
+echo "Elapsed time: " . $watch->getElapsedTime();

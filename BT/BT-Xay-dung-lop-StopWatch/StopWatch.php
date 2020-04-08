@@ -1,16 +1,12 @@
 <?php
 
 
-date_default_timezone_set("Asia/Ho_Chi_Minh");
+date_default_timezone_set("Asia/Bangkok");
 class StopWatch
 {
     private $startTime ;
     private $endTime  ;
 
-    public function __construct()
-    {
-        $this->endTime= date('H:i:s') ;
-    }
     public function getStartTime()
     {
         return $this->startTime;
@@ -18,6 +14,11 @@ class StopWatch
     public function getEndTime()
     {
         return $this->endTime;
+    }
+
+    public function __construct()
+    {
+        $this->endTime= date('H:i:s') ;
     }
     public function startTime()
     {
