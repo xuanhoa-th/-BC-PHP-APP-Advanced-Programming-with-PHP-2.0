@@ -9,24 +9,28 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>phuong trinh bac 2</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
-<form method="post" action="view/view.php">
-    <h2>giai phuong trinh bac 2</h2>
-        Nhập số a:
-        <input type="text" name="a" >
-        <br>
-         <br>
-         Nhập số b:
-        <input type="text" name="b" >
-         <br>
-          <br>
-         Nhập số c:
-        <input type="text" name="c" >
-        <br>
-        <br>
-    
-    <input type="submit" value="Giải phương trình">
-</form>
+<div class="col-md-5">
+        <form class="navbar-form navbar-left" role="search" method="post" action="view/view.php">
+           <h3><b>Giải phương trình bậc 2</b></h3>
+           <br>
+           <span style="font-size: 16px">Nhập số a:</span>
+           <input type="text" class="form-control" name="a" >
+           <br>
+           <br>
+           <span style="font-size: 16px">Nhập số b:</span>
+           <input type="text" class="form-control" name="b" >
+           <br>
+           <br>
+           <span style="font-size: 16px">Nhập số c:</span>
+           <input type="text" class="form-control" name="c" >
+           <br>
+           <br>
+           <button type="submit" class="btn btn-success">Giải phương trình</button>
+           
+        </form>
+    </div>
 </body>
 </html>
