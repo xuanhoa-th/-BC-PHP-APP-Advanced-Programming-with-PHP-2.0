@@ -1,10 +1,10 @@
 <?php
-include "class/Student.php";
-include "class/StudentManager.php";
+include "../class/Student.php";
+include "../class/StudentManager.php";
+$keyword = $_REQUEST['keyword'];
 
 $studentManager = new StudentManager("data/data.json");
-$students = $studentManager->getStudents();
-//var_dump($students);
+$students = $studentManager->Keyword($keyword);
 ?>
 <!doctype html>
 <html lang="en">
@@ -18,34 +18,10 @@ $students = $studentManager->getStudents();
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-<div class="mai1">
-    <h1>Danh sách sinh viên</h1>
-    <hr>
-</div>
-<div class="col-md-5">
-        <form class="navbar-form navbar-left" role="search" method="post" action="action/store.php">
-           <h3><b>Thêm mới Sinh Viên</b></h3>
-           <br>
-           <span style="font-size: 16px">Họ và tên SV:</span>
-           <input type="text" class="form-control" name="name" >
-           <br>
-           <br>
-           <span style="font-size: 16px">Địa chỉ Email:</span>
-           <input type="text" class="form-control" name="email" >
-           <br>
-           <br>
-           <span style="font-size: 16px">Số điện thoại:</span>
-           <input type="text" class="form-control" name="phone" >
-           <br>
-           <br>
-           <button type="submit" class="btn btn-success">Thêm Sinh Viên</button>
-           
-        </form>
-    </div>
 <div class="col-md-7">
     <form class="navbar-form navbar-left" role="search" method="post" action="view/seach.php">
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search" value="11" name="keyword">
+            <input type="text" class="form-control" placeholder="Search" value="" name="keyword">
         </div>
         <a href=""><button class="btn btn-success">Tìm kiếm</button></a>
     </form>
@@ -82,3 +58,4 @@ $students = $studentManager->getStudents();
 </div>
 </body>
 </html>
+

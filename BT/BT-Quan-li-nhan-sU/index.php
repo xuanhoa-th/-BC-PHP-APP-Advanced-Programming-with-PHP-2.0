@@ -19,33 +19,42 @@ $students = $studentManager->getStudents();
 </head>
 <body>
 <div class="mai1">
-    <h1>Danh sách sinh viên</h1>
+    <h1>Danh sách Nhân Sự</h1>
     <hr>
 </div>
-<div class="col-md-5">
+<div class="col-md-4">
         <form class="navbar-form navbar-left" role="search" method="post" action="action/store.php">
-           <h3><b>Thêm mới Sinh Viên</b></h3>
+           <h3><b>Thêm mới Nhân Sự</b></h3>
            <br>
-           <span style="font-size: 16px">Họ và tên SV:</span>
+           <span style="font-size: 16px">Họ và tên:</span>
            <input type="text" class="form-control" name="name" >
            <br>
            <br>
-           <span style="font-size: 16px">Địa chỉ Email:</span>
-           <input type="text" class="form-control" name="email" >
+           <span style="font-size: 16px">Ngày sinh:</span>
+           <input type="text" class="form-control" name="date" >
            <br>
            <br>
-           <span style="font-size: 16px">Số điện thoại:</span>
-           <input type="text" class="form-control" name="phone" >
+           <span style="font-size: 16px">Địa chỉ:   </span>
+           <input type="text" class="form-control" name="adrees" >
            <br>
            <br>
-           <button type="submit" class="btn btn-success">Thêm Sinh Viên</button>
+           <span style="font-size: 16px">Vị trí công việc:</span>
+           <input type="text" class="form-control" name="location" >
+           <br>
+           <br>
+         
+           <span style="font-size: 16px">Chi tiết Nhân Sự:</span>
+            <textarea type="text" class="form-control" name="detail"></textarea>
+           <br>
+           <br>
+           <button type="submit" class="btn btn-success">Thêm Nhân Sự</button>
            
         </form>
     </div>
-<div class="col-md-7">
+<div class="col-md-8">
     <form class="navbar-form navbar-left" role="search" method="post" action="view/seach.php">
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search" value="11" name="keyword">
+            <input type="text" class="form-control" placeholder="Search" value="" name="keyword">
         </div>
         <a href=""><button class="btn btn-success">Tìm kiếm</button></a>
     </form>
@@ -54,8 +63,10 @@ $students = $studentManager->getStudents();
         <tr>
             <th>STT</th>
             <th>Họ và tên</th>
-            <th>Địa chỉ Email</th>
-            <th>Số điện thoại</th>
+            <th>Ngày sinh</th>
+            <th>Địa chỉ</th>
+            <th>Vị trí công việc</th>
+            <th>Chi tiết</th>
             <th></th>
             <th></th>
         </tr>
@@ -65,9 +76,11 @@ $students = $studentManager->getStudents();
             <?php foreach ($students as $index => $student):?>
                 <tr>
                     <td> <?php echo $index +1 ?> </td>
-                    <td> <?php echo $student -> getName() ?> </td>
-                    <td> <?php echo $student-> getemail() ?> </td>
-                    <td> <?php echo $student-> getphone() ?> </td>
+                    <td> <?php echo $student -> getname() ?> </td>
+                    <td> <?php echo $student-> getdate() ?> </td>
+                    <td> <?php echo $student-> getadrees() ?> </td>
+                    <td> <?php echo $student-> getlocation() ?> </td>
+                    <td> <?php echo $student-> getdetail() ?> </td>
                     <td><a href="view/edit.php?index=<?php echo $index ?>"><button class="btn btn-success">Sửa</button></a></td>
                     <td><a onclick = "return confirm('ban chac muon xoa') " href="action/delete.php?index=<?php echo $index ?>"><button class="btn btn-danger">Xóa</button></a></td>
                 </tr>

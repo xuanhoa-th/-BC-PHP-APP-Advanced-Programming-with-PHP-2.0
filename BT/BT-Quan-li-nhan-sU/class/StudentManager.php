@@ -12,9 +12,11 @@ class StudentManager
 
     public function add($student) {
         $data = [
-            "name" => $student->getName(),
-            "email" => $student->getEmail(),
-            "phone" => $student->getPhone()
+            "name" => $student->getname(),
+            "date" => $student->getdate(),
+            "adrees" => $student->getadrees(),
+            "location" => $student->getlocation(),
+            "detail" => $student->getdetail()
         ];
         $students = $this->getDataJson();
         array_push($students, $data);
@@ -24,8 +26,8 @@ class StudentManager
     {
         $data = $this->getDataJson();
         foreach ($data as $obj) {
-            $student = new Student($obj->name, $obj->email, $obj->phone);
-            array_push($this->listStudent, $student);
+            $student = new Student($obj->name,$obj->date,$obj->adrees,$obj->location,$obj->detail);
+            array_push($this->listStudent,$student);
         }
         return $this->listStudent;
     }
@@ -41,14 +43,16 @@ class StudentManager
     public function getStudentsByIndex($index){
         $data = $this->getDataJson();// du lieu lay ra la 1 mang
         $obj = $data[$index];
-        return new Student($obj->name,$obj->email,$obj->phone);
+        return new Student($obj->name,$obj->date,$obj->adrees,$obj->location,$obj->detail);
     }
     public function updateStudent($index,$student){
         $data = $this->getDataJson();// du lieu lay ra la 1 man
         $arr = [
-            "name" => $student->getName(),
-            "email" => $student->getEmail(),
-            "phone" => $student->getPhone()
+            "name" => $student->getname(),
+            "date" => $student->getdate(),
+            "adrees" => $student->getadrees(),
+            "location" => $student->getlocation(),
+            "detail" => $student->getdetail()
         ];
         $data[$index] = $arr;
         $this->saveDataToFile($data);
@@ -59,15 +63,15 @@ class StudentManager
         $this->saveDataToFile($data);
 
     }
-    public function Keyword($keyword){
-        $data = $this->getDataJson();
-        $arrsearch = [];
-        foreach ($data as $item){
-            if ($item['name'] == $keyword){
-                $student = new Student($item['name'],$item['email'],$item['phone']);
-                array_push($arrsearch,$student);
-            }
-        }
-        return $arrsearch;
-    }
+    // public function Keyword($keyword){
+    //     $data = $this->getDataJson();
+    //     $arrsearch = [];
+    //     foreach ($data as $item){
+    //         if ($item['name'] == $keyword){
+    //             $student = new Student($item['name'],$item['email'],$item['phone'],);
+    //             array_push($arrsearch,$student);
+    //         }
+    //     }
+    //     return $arrsearch;
+    // }
 }
