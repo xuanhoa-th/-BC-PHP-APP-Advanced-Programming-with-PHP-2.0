@@ -33,7 +33,6 @@ $student = getStudentByIndex($index,"../data.json");
 	       <br>
 	       <br>
 	       <button type="submit" class="btn btn-success">Update</button>
-	       
 	    </form>
 	</div>
 	

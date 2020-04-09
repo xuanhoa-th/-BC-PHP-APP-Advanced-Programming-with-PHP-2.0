@@ -10,9 +10,10 @@ function store($data,$filePath){
 	file_put_contents($filePath,$dataNewJson);
 };
 
-function update($index,$data,$filePath){
+function update($data,$filePath){
 	$dataArr = getData($filePath);
-	$dataArr[$index] = $data;
+	array_push($dataArr,$data);
+	// $dataArr[$index] = $data;
 	$dataNewJson = json_encode($dataArr);
 	file_put_contents($filePath,$dataNewJson);
 };

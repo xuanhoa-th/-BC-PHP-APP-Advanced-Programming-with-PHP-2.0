@@ -1,7 +1,7 @@
 <?php 
 include "function.php";
 $students = getAllUser("data.json");
- // var_dump($students);
+ var_dump($students);
 
  ?>
 <!DOCTYPE html>
