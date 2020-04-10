@@ -20,7 +20,7 @@ $students = $studentManager->getKeyword($keyword);
 </head>
 <body>
 <div class="mai1">
-    <h1>Danh sách sinh viên</h1>
+    <h1>Danh sách tìm kiếm sinh viên</h1>
     <hr>
 </div>
 <div class="container">
