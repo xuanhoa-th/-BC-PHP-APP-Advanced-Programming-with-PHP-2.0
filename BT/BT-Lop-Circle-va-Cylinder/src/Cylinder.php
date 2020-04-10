@@ -9,7 +9,22 @@ class Cylinder extends Circle
     {
         parent::__construct($radius, $color);
         $this->height = $height;
-        parent::__construct($radius,$color);
+    }
+
+    /**
+     * @param mixed $height
+     */
+    public function setHeight($height)
+    {
+        $this->height = $height;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getHeight()
+    {
+        return $this->height;
     }
     public function CylindricalVolume(){
         return pi()*$this->radius*2*$this->height;
