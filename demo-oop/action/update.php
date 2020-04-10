@@ -1,5 +1,5 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] == "POST"){
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
     include "../class/Student.php";
     include "../class/StudentManager.php";
     $index = $_REQUEST['index'];
@@ -8,11 +8,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $phone = $_REQUEST['phone'];
 
     $studentManager = new StudentManager("../data/data.json");
-    $student = $studentManager ->getStudentsByIndex($index);
+    $student = $studentManager->getStudentsByIndex($index);
     $student->setName($name);
-    $student->getEmail($email);
-    $student->getPhone($phone);
+    $student->setEmail($email);
+    $student->setPhone($phone);
 
-    $studentManager-> updateStudent($index,$student);
+    $studentManager->updateStudent($index, $student);
     header("Location: ../index.php");
 }

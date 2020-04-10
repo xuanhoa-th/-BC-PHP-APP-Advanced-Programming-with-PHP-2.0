@@ -4,7 +4,6 @@ include "class/StudentManager.php";
 
 $studentManager = new StudentManager("data/data.json");
 $students = $studentManager->getStudents();
-//var_dump($students);
 ?>
 <!doctype html>
 <html lang="en">
@@ -45,7 +44,7 @@ $students = $studentManager->getStudents();
 <div class="col-md-7">
     <form class="navbar-form navbar-left" role="search" method="post" action="view/seach.php">
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search" value="11" name="keyword">
+            <input type="text" class="form-control" placeholder="Search" value="" name="keyword">
         </div>
         <a href=""><button class="btn btn-success">Tìm kiếm</button></a>
     </form>
