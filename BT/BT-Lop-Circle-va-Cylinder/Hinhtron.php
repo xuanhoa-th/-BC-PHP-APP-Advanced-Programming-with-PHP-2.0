@@ -1,7 +1,7 @@
 <?php
 
 
-class Circle
+class Hinhtron
 {
     public $radius;
     public $color;
@@ -15,19 +15,33 @@ class Circle
     {
         return $this->color;
     }
+
+    /**
+     * @return mixed
+     */
     public function getRadius()
     {
         return $this->radius;
     }
-    public function setColor($color)
-    {
-        $this->color = $color;
-    }
+
+    /**
+     * @param mixed $radius
+     */
     public function setRadius($radius)
     {
         $this->radius = $radius;
     }
-    public function calculateAreaToday(){
-        return pi() * pow($this->radius * 2);
+
+    /**
+     * @param mixed $color
+     */
+    public function setColor($color)
+    {
+        $this->color = $color;
     }
+    public function acreage(){
+        return pi()* $this->radius*2;
+    }
+
+
 }

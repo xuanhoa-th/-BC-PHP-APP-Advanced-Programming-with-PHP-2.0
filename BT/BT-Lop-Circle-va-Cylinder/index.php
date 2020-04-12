@@ -1,10 +1,10 @@
 <?php
-include "src/Circle.php";
-include "src/Cylinder.php";
+include "Hinhtron.php";
+include "Hinhtru.php";
 
-$circle = new Circle(3,"blue");
-echo " Circle Area : ".$circle->calculateAreaToday()."<br>";
-$cylinder = new Cylinder(5,"red",10);
-echo 'Cylinder area: ' . $cylinder->CylindricalVolume() . '<br />';
+$circle = new Hinhtron(12,'blue');
+echo " Circle Area : ".$circle->acreage()."<br>";
+$cylinder = new Hinhtru(12,"blue",10);
+echo 'Cylinder : '. $cylinder->cylindricalVolume();
 
 ?>
