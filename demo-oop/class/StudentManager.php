@@ -17,7 +17,8 @@ class StudentManager
         $data = [
             "name" => $student->getName(),
             "email" => $student->getEmail(),
-            "phone" => $student->getPhone()
+            "phone" => $student->getPhone(),
+            "image" => $student->getImage()
         ];
         $students = $this->getDataJson();
         var_dump($students);
@@ -30,7 +31,7 @@ class StudentManager
         $data = $this->getDataJson();
 
         foreach ($data as $obj) {
-            $student = new Student($obj->name, $obj->email, $obj->phone);
+            $student = new Student($obj->name, $obj->email, $obj->phone,$obj->image);
             array_push($this->listStudent, $student);
         }
         return $this->listStudent;
@@ -52,7 +53,7 @@ class StudentManager
     {
         $data = $this->getDataJson();// du lieu lay ra la 1 mang
         $obj = $data[$index];
-        return new Student($obj->name, $obj->email, $obj->phone);
+        return new Student($obj->name, $obj->email, $obj->phone,$obj->image);
     }
 
     public function updateStudent($index, $student)
@@ -67,9 +68,18 @@ class StudentManager
         $this->saveDataToFile($data);
     }
 
-    public function deleteStudent($index)
+    public function deleteStudent($index,$student)
     {
+//        unlink("data/uploads/". $student->getImage);
         $data = $this->getDataJson();
+        $arr = [
+            "name" => $student->getName(),
+            "email" => $student->getEmail(),
+            "phone" => $student->getPhone(),
+            "image" => $student->getImage()
+        ];
+        var_dump($arr);
+
         array_splice($data, $index, 1);
         $this->saveDataToFile($data);
 

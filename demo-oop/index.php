@@ -21,14 +21,18 @@ $students = $studentManager->getStudents();
     <h1>Danh sách sinh viên</h1>
     <hr>
 </div>
-<div class="col-md-5">
-        <form class="navbar-form navbar-left" role="search" method="post" action="action/store.php">
+<div class="col-md-4">
+        <form class="navbar-form navbar-left" role="search" method="post" action="action/store.php" enctype="multipart/form-data">
            <h3><b>Thêm mới Sinh Viên</b></h3>
            <br>
            <span style="font-size: 16px">Họ và tên SV:</span>
            <input type="text" class="form-control" name="name" >
            <br>
            <br>
+            <span style="font-size: 16px">Ảnh sinh viên:</span>
+            <input type="file" class="form-control" name="file" >
+            <br>
+            <br>
            <span style="font-size: 16px">Địa chỉ Email:</span>
            <input type="text" class="form-control" name="email" >
            <br>
@@ -37,11 +41,21 @@ $students = $studentManager->getStudents();
            <input type="text" class="form-control" name="phone" >
            <br>
            <br>
+                <span style="font-size: 16px">Nhóm lớp SV:</span>
+                <select class="form-control" name="group">
+                    <option value="C02H1">C02H1</option>
+                    <option value="C02H2">C02H2</option>
+                    <option value="C02H3">C02H3</option>
+
+                </select>
+
+            <br>
+            <br>
            <button type="submit" class="btn btn-success">Thêm Sinh Viên</button>
            
         </form>
     </div>
-<div class="col-md-7">
+<div class="col-md-8">
     <form class="navbar-form navbar-left" role="search" method="post" action="view/seach.php">
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Search" value="" name="keyword">
@@ -53,8 +67,10 @@ $students = $studentManager->getStudents();
         <tr>
             <th>STT</th>
             <th>Họ và tên</th>
+            <th>Avatar</th>
             <th>Địa chỉ Email</th>
             <th>Số điện thoại</th>
+            <th>Group</th>
             <th></th>
             <th></th>
         </tr>
@@ -65,8 +81,10 @@ $students = $studentManager->getStudents();
                 <tr>
                     <td> <?php echo $index +1 ?> </td>
                     <td> <?php echo $student -> getName() ?> </td>
+                    <td><img width="130" src="<?php echo "data/uploads/" . $student ->getImage() ?>" alt=""> </td>
                     <td> <?php echo $student-> getemail() ?> </td>
                     <td> <?php echo $student-> getphone() ?> </td>
+                    <td></td>
                     <td><a href="view/edit.php?index=<?php echo $index ?>"><button class="btn btn-success">Sửa</button></a></td>
                     <td><a onclick = "return confirm('ban chac muon xoa') " href="action/delete.php?index=<?php echo $index ?>"><button class="btn btn-danger">Xóa</button></a></td>
                 </tr>

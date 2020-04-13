@@ -6,12 +6,14 @@ class Student
     protected $name;
     protected $email;
     protected $phone;
+    protected $image;
 
-    public function __construct($name, $email, $phone)
+    public function __construct($name, $email, $phone,$image)
     {
         $this->name = $name;
         $this->email = $email;
         $this->phone = $phone;
+        $this->image = $image;
     }
 
 
@@ -50,5 +52,13 @@ class Student
     public function setPhone($phone)
     {
         $this->phone = $phone;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }
