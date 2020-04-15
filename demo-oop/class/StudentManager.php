@@ -5,7 +5,7 @@ class StudentManager
 {
     protected $listStudent = [];
     protected $filePath;
-    public $arrsearch = [];
+    public $array = [];
 
     public function __construct($filePath)
     {
@@ -14,16 +14,15 @@ class StudentManager
 
     public function add($student)
     {
-        $data = [
+        $item = [
             "name" => $student->getName(),
             "email" => $student->getEmail(),
             "phone" => $student->getPhone(),
             "image" => $student->getImage()
         ];
-        $students = $this->getDataJson();
-        var_dump($students);
-        array_push($students, $data);
-        $this->saveDataToFile($students);
+        $data = $this->getDataJson();
+        array_push($data, $item);
+        $this->saveDataToFile($data);
     }
 
     public function getStudents()
@@ -31,7 +30,7 @@ class StudentManager
         $data = $this->getDataJson();
 
         foreach ($data as $obj) {
-            $student = new Student($obj->name, $obj->email, $obj->phone,$obj->image);
+            $student = new Student($obj->name, $obj->email, $obj->phone, $obj->image);
             array_push($this->listStudent, $student);
         }
         return $this->listStudent;
@@ -51,14 +50,14 @@ class StudentManager
 
     public function getStudentsByIndex($index)
     {
-        $data = $this->getDataJson();// du lieu lay ra la 1 mang
+        $data = $this->getDataJson();
         $obj = $data[$index];
-        return new Student($obj->name, $obj->email, $obj->phone,$obj->image);
+        return new Student($obj->name, $obj->email, $obj->phone, $obj->image);
     }
 
     public function updateStudent($index, $student)
     {
-        $data = $this->getDataJson();// du lieu lay ra la 1 man
+        $data = $this->getDataJson();
         $arr = [
             "name" => $student->getName(),
             "email" => $student->getEmail(),
@@ -68,18 +67,9 @@ class StudentManager
         $this->saveDataToFile($data);
     }
 
-    public function deleteStudent($index,$student)
+    public function deleteStudent($index, $student)
     {
-//        unlink("data/uploads/". $student->getImage);
         $data = $this->getDataJson();
-        $arr = [
-            "name" => $student->getName(),
-            "email" => $student->getEmail(),
-            "phone" => $student->getPhone(),
-            "image" => $student->getImage()
-        ];
-        var_dump($arr);
-
         array_splice($data, $index, 1);
         $this->saveDataToFile($data);
 
@@ -91,9 +81,9 @@ class StudentManager
         foreach ($data as $obj) {
             if ($obj->name == $keyword) {
                 $student = new Student($obj->name, $obj->email, $obj->phone);
-                array_push($this->arrsearch, $student);
+                array_push($this->array, $student);
             }
         }
-        return $this->arrsearch;
+        return $this->array;
     }
 }
