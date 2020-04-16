@@ -68,7 +68,6 @@ class ArrayList
     }
 
     // tra ve true neu gia tri tham so la nguyen
-    public function isInteger($toCheck){
-        return preg_match("/^[0-9]+$/", $toCheck);
-    }
+
+
 }

@@ -8,7 +8,13 @@ $listInteger->add(4);
 $listInteger->add(5);
 
 echo $listInteger->get(2);
-echo $listInteger->sort();
+//echo $listInteger->toArray();
+//tra ve 1 mang chua tat ca cac phan tu trong danh sach
+var_dump($listInteger->toArray());
+//tra ve so phan tu trong danh sach
+echo "<br>";
+var_dump($listInteger->size());
+
 
 
 
