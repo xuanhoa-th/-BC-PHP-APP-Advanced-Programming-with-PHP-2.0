@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $group = $_POST['group'];
         $file = $_FILES['file']['tmp_name'];
         $nameFile = $_FILES['file']['name'];
-        $pathStofile = "../data/uploads/" . $nameFile;
+        $pathStofile = "../data/uploads/". $nameFile;
          move_uploaded_file($file,$pathStofile);
 
 
