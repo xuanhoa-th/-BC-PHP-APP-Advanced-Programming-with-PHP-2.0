@@ -17,7 +17,7 @@ class MyList
             return $this->object_element[$index];
 
         } else {
-            die("ERROR in ArrayList.get");
+            die("ERROR in LinkList.get");
         }
     }
     public function add($index,$element){

@@ -1,7 +1,7 @@
 <?php 
-include 'ArrayList.php';
+include 'LinkList.php';
 
-$list = new ArrayList();
+$list = new LinkList();
 $list -> add(1);
 $list -> add(15);
 $list -> add(20);

@@ -25,7 +25,7 @@ class ArrayList
             return $this->arrayList[$index];
 
         } else {
-            die("ERROR in ArrayList.get");
+            die("ERROR in LinkList.get");
         }
     }
 
@@ -48,7 +48,7 @@ class ArrayList
 
             $this->arrayList = $newArrayList;
         } else {
-            die("ERROR in ArrayList.remove <br> Integer value required");
+            die("ERROR in LinkList.remove <br> Integer value required");
         }
     }
     //tra ve so phan tu trong danh sach

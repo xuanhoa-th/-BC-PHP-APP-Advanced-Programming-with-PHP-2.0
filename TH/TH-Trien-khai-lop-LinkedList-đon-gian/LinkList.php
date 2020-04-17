@@ -17,7 +17,7 @@ class LinkList
     }
     //them node vao dau danh sach
 //    public function insertFirst($data){
-//        $link = new Node($data); //khởi tạo một node mới
+//        $link = new KNode($data); //khởi tạo một node mới
 //        $link->next = $this->firsNode; //sẽ gán node kế sau của node mới khởi tạo là node đầu tiên
 //        $this->firsNode = $link;//sẽ gán tiếp node đầu của danh sách là node mới
 //        if($this->lastNode == NULL)
@@ -27,7 +27,7 @@ class LinkList
 //    }
     public function insertFirst($data)
     {
-        $link = new Node($data);
+        $link = new KNode($data);
         $link->next = $this->firsNode;
         $this->firstNode = $link;
 
@@ -41,7 +41,7 @@ class LinkList
     //them node vao phia sau danh sach
     public function insertLast($data){
         if ($this->firsNode !== null ){
-            $link = new Node($data);
+            $link = new KNode($data);
             $this->lastNode->next = $link;
             $link->next = null;
             $this->lastNode = $link;
@@ -92,7 +92,7 @@ class LinkList
 //        if ($key == 0){
 //            $this->insertFirst($data);
 //        } else {
-//            $link = new Node($data);
+//            $link = new KNode($data);
 //            $current = $this->firsNode;
 //            $previous = $this->firsNode;
 //
