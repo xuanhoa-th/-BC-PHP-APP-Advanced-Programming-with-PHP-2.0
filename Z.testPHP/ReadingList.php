@@ -15,12 +15,12 @@ class ReadingList
         if (count($this->stack) < $this->limit){
             array_unshift($this->stack,$item);
         } else {
-            throw new RunTimeException('Stack is full!');
+            throw new RunTimeException('StackInterface is full!');
         }
     }
     public function pop(){
         if ($this->isEmpty()){
-            throw new RunTimeException('Stack is full!');
+            throw new RunTimeException('StackInterface is full!');
         } else {
             return array_shift($this->stack);
         }

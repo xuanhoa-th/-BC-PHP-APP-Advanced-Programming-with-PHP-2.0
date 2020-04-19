@@ -21,7 +21,7 @@ class Patient
         if (!$this->isFull()) {
             array_push($this->patient,$name,$code);
         } else {
-            echo "Queue full";
+            echo "QueueInterface full";
         }
     }
 

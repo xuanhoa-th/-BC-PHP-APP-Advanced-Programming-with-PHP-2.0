@@ -1,7 +1,7 @@
 <?php
 include "Stack.php";
 
-$stack = new Stack();
+$stack = new StackInterface();
 $stack->push("1");
 $stack->push("3");
 $stack->push("5");

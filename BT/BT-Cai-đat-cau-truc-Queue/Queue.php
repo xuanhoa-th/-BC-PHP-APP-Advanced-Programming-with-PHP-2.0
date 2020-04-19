@@ -17,7 +17,7 @@ class Queue implements QueueInterface
         if (!$this->isFull()) {
             array_push($this->queue, $item);
         } else {
-            echo "Queue full";
+            echo "QueueInterface full";
         }
     }
 
@@ -26,7 +26,7 @@ class Queue implements QueueInterface
         if (!$this->isEmpty()) {
             return array_shift($this->queue);
         } else {
-            echo "Queue empty";
+            echo "QueueInterface empty";
         }
     }
 

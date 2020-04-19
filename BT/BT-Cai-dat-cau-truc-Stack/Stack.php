@@ -21,14 +21,14 @@ class Stack
         if (count($this->stack) < $this->limit) {
             array_unshift($this->stack, $item);
         } else {
-            throw new RunTimeException('Stack is full!');
+            throw new RunTimeException('StackInterface is full!');
         }
     }
     public function pop(){
         if (!$this->isEmpty()){
             array_shift($this->stack);
         } else {
-            throw new RunTimeException('Stack is full!');
+            throw new RunTimeException('StackInterface is full!');
         }
     }
     // hien thi phan tu stack
