@@ -5,8 +5,6 @@ class Patient
 {
     public $patient;
     public $limit;
-    public $name;
-    public $code;
 
     public function __construct( $limit = 100)
     {
@@ -19,11 +17,22 @@ class Patient
     function enqueue($name,$code)
     {
         if (!$this->isFull()) {
-            array_push($this->patient,$name,$code);
+            array_push($this->patient,['name' => $name,'code' =>$code]);
         } else {
             echo "QueueInterface full";
         }
+        return $this->patient;
     }
+   function dequeue(){
+        $array = $this->patient;
+        usort($array,function($a, $b) {
+            if ($a['code'] > $b['code']) {
+                return true;
+            }
+            return false;
+        });
+        return $array[0];
+   }
 
     public function get(){
         return $this->patient;
@@ -32,5 +41,4 @@ class Patient
     {
         return count($this->patient) == $this->limit;
     }
-
 }
