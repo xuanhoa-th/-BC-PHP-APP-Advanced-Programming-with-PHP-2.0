@@ -1,6 +1,35 @@
 <?php
-include "class/Printer.php";
-include "class/FilePrinter.php";
 
-$filePrinter = new FilePrinter("FilePrinter","data.txt");
-$filePrinter->makePrinter("xin chao");
+ class CustomException extends Exception {
+   public function errorMessage() {
+     /* error message */
+     $errorMsg = 'Error on line '.$this->getLine().' in '.$this->getFile()
+     .': <b>'.$this->getMessage().'</b> is not a valid E-Mail address';
+     return $errorMsg;
+   }
+ }
+
+ $email = "someone@example.com";
+
+ try {
+   /* check if */
+   if(filter_var($email, FILTER_VALIDATE_EMAIL) === FALSE) {
+     /* throw exception if email is not valid */
+     throw new CustomException($email);
+   }
+   /* check for "example" in mail address */
+   if(strpos($email, "example") !== FALSE) {
+     throw new Exception("$email is an example e-mail");
+   }
+ }
+
+ catch (CustomException $e) {
+   echo $e->errorMessage();
+ }
+
+ catch(Exception $e) {
+   echo $e->getMessage();
+ }
+?>
+
+ ?>
