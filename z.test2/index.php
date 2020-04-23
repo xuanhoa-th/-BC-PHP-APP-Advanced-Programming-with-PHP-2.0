@@ -1,12 +1,9 @@
 <?php
 
-function isFirstLetterUpperCase($str){
-    $pattern = '/^[A-Z]/';
-    if (preg_match($pattern,$str)){
-        echo "Ký tự đầu tiên của chuỗi là chữ hoa";
-    } else {
-        echo "Ký tự đầu tiên của chuỗi khong là chữ hoa";
-    }
-}
-isFirstLetterUpperCase('Codegym');
-//isFirstLetterUpperCase('cdegym');
+$subject = "51-X2-123.04";
+$pattern = '/^\d{2}-[A-Z]\d-\d{3}\.\d{2}$/';
+if(preg_match($pattern, $subject, $matches))
+echo 'Khớp';
+else
+echo 'Không khớp';
+

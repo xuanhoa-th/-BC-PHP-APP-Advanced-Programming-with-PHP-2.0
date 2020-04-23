@@ -1,24 +1,14 @@
 <?php
-
-// function isFirstLetterUpperCase($str){
-//     $pattern = '/^[A-Z]/';
-//     if (preg_match($pattern,$str)){
-//         echo "Ký tự đầu tiên của chuỗi là chữ hoa";
-//     } else {
-//         echo "Ký tự đầu tiên của chuỗi khong là chữ hoa";
-//     }
-// }
-// isFirstLetterUpperCase('Codegym');
-//isFirstLetterUpperCase('cdegym');
 if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $email = $_REQUEST['email'];
-    //var_dump($email);
     function checkEmail($str){
-    $pattern = '/([a-z0-9_]+|[a-z0-9_]+\.[a-z0-9_]+)@(([a-z0-9]|[a-z0-9]+\.[a-z0-9]+)+\.([a-z]{2,4}))/';
+    $pattern = '/^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\.[A-Za-z0-9]+)$/';
     if(!preg_match($pattern,$str)){
-            echo "dia chi email phu hop";
+            echo "email chưa đúng định dạng";
+
     } else {
-            echo "dia chi khong phu hop";
+            echo " Đăng kí email thành công ";
+
     }
     }
     checkEmail($email);
