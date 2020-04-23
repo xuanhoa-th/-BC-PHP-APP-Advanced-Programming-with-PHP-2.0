@@ -10,3 +10,4 @@ function isFirstLetterUpperCase($str){
 }
 isFirstLetterUpperCase('Codegym');
 //isFirstLetterUpperCase('cdegym');
+
