@@ -2,7 +2,7 @@
 if ($_SERVER['REQUEST_METHOD'] == "POST"){
 	$name = $_REQUEST['name'];
 	 function checkName($str){
-	 	$pattern = '/^\(+\d{2}+\)-\(+\0+[1-9]{9}\)$/';
+	 	$pattern = '/^\(([1-9]){2}\)-\(([0]+)([1-9]{7})\)$/';
 	 	if(!preg_match($pattern,$str)){
             echo "phone chưa đúng định dạng";
 
@@ -11,7 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 
     }
 	 }
-	 checkName($name);
+	 checkName($name); 
+     // (25)-(01234567)
 }
  ?>
 

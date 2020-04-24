@@ -2,20 +2,18 @@
 if ($_SERVER['REQUEST_METHOD'] == "POST"){
 	$name = $_REQUEST['name'];
 	 function checkName($str){
-	 	$pattern = '/^[A|C|P]\d+[^\_\.!@#$%&^*()]+\d{4}$[G|||]{1} /';
+	 	$pattern = '/^([A|C|P]){1}([^\!@#$%^&*()]+)([0-9]){3}([G|H|I|K|L|M]+)$/';
 	 	if(!preg_match($pattern,$str)){
-            echo "email chưa đúng định dạng";
+            echo "Tên lớp chưa đúng định dạng";
 
     } else {
-            echo " Đăng kí email thành công ";
+            echo " Đăng kí lớp học thành công ";
 
     }
 	 }
 	 checkName($name);
 }
  ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
