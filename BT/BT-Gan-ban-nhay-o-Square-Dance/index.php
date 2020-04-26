@@ -1,31 +1,22 @@
 <?php
-include "Dancer.php";
+include_once "Classes/DanceFloor.php";
 
-function pairing()
-{
-    $queueDancerMale = new SplQueue();
-    $queueDancerFemale = new SplQueue();
-    // male
-    $maleDancer0 = new Dancer("Smith", "male");
-    $maleDancer1 = new Dancer("Jones", "male");
-    $maleDancer2 = new Dancer("Ingram", "male");
-    $maleDancer3 = new Dancer("Brown", "male");
+$danceFloor = new DanceFloor();
 
-    $queueDancerMale->enqueue($maleDancer0);
-    $queueDancerMale->enqueue($maleDancer1);
-    $queueDancerMale->enqueue($maleDancer2);
-    $queueDancerMale->enqueue($maleDancer3);
-    // female
-    $femaleDancer0 = new Dancer("Ana", "female");
-    $femaleDancer1 = new Dancer("Almira", "female");
-    $femaleDancer2 = new Dancer("Meliora", "female");
+$danceFloor->addDancer('Peter', 'male');
+$danceFloor->addDancer('Tom', 'male');
+$danceFloor->addDancer('Bill', 'male');
+$danceFloor->addDancer('Tony', 'male');
+$danceFloor->addDancer("HaHa","female");
+$danceFloor->addDancer("Anna","female");
+$danceFloor->addDancer("Emily","female");
+$danceFloor->addDancer("Rose","female");
+$danceFloor->addDancer("Lily","female");
+$danceFloor->addDancer("Lavira","female");
+$danceFloor->addDancer("Annala","female");
 
-    $queueDancerFemale->enqueue($femaleDancer0);
-    $queueDancerFemale->enqueue($femaleDancer1);
-    $queueDancerFemale->enqueue($femaleDancer2);
+$danceFloor->divideIntoGroups();
 
-    for ($i = 0; $i < $temp; $i++){
-        echo "Couple " . ($i + 1) . " : " . $queueDancerMale[$i]->name . " and " . $queueDancerFemale[$i]->name . "</br>";
-    }
-}
-pairing();
+echo $danceFloor->pair();
+
+?>
