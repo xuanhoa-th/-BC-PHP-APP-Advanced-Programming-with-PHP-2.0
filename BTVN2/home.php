@@ -11,39 +11,51 @@ $students = $studentManager->getStudents();
 if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $error = [];
     if (empty($_REQUEST['email'])){
-        $error['email'] = "Email không được để rỗng";
+        $error['email'] = " * Email không được để rỗng";
     } else {
-        $pattern = '/^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\.[A-Za-z0-9]+)$/';
+      $pattern = '/^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\.[A-Za-z0-9]+)$/';
+//        $pattern = '/^([a-z]{2,})$/';
         if(!preg_match($pattern,$_REQUEST['email'])){
-            $error['email'] = "Email không đúng định dạng";
+            $error['email'] = " * Email không đúng định dạng";
         } else {
             $email = $_REQUEST['email'];
         }
     }
     if (empty($_REQUEST['name'])){
-        $error['name'] = "name không được để rỗng";
+        $error['name'] = " * name không được để rỗng";
     } else {
-        $pattern = '/^([A-Z]){1}([0-9]){1}([|@|!|^|-|%|$]){1}([^\s]){8,}$/';
+        $pattern = '/^[A-Za-z0-9\s]{1,50}$/';
         if(!preg_match($pattern,$_REQUEST['name'])){
-            $error['name'] = "name không đúng định dạng";
+            $error['name'] = " * name không đúng định dạng";
         } else {
-            $password = $_REQUEST['name'];
+            $name = $_REQUEST['name'];
         }
-
     }
     if (empty($_REQUEST['phone'])){
-        $error['phone'] = "phone không được để rỗng";
+        $error['phone'] = " * phone không được để rỗng";
     } else {
 //        $pattern = '/^([096|097|098|086|032|033|034|035|036|037|038|039|089|090|093|070|079|077|076|078|081|082|083|084|085]){1}([1-9]{7})$/';
-        $pattern = '/^([0-9]{10,})$/';
-
+        $pattern = '/^([0-9]{2,})$/';
         if(!preg_match($pattern,$_REQUEST['phone'])){
-            $error['phone'] = "phone không đúng định dạng";
+            $error['phone'] = " * phone không đúng định dạng";
         } else {
             $phone = $_REQUEST['phone'];
 
         }
 
+    }
+    if (!empty($name)){
+        if (!empty($email)){
+            if (!empty($phone)){
+                $file = $_FILES['file']['tmp_name'];
+                $nameFile = $_FILES['file']['name'];
+                $pathStoreFile = "data/uploads/" . $nameFile;
+                move_uploaded_file($file, $pathStoreFile);
+                $student = new Student($name, $email, $phone, $nameFile);
+                $studentManager = new StudentManager("data/data.json");
+                $studentManager->add($student);
+            }
+        }
     }
 
 }
@@ -82,31 +94,35 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     </div>
 </nav>
 <div class="col-md-4">
-    <form class="navbar-form navbar-left" role="search" method="post" action="action/store.php" enctype="multipart/form-data">
+<!--    //action="action/store.php"-->
+    <form class="navbar-form navbar-left" role="search" method="post"  enctype="multipart/form-data">
         <h3><b>Thêm mới Sinh Viên</b></h3>
         <br>
         <span style="font-size: 16px">Họ và tên SV:</span>
         <input type="text" class="form-control" name="name">
         <?php if (isset($error['name'])) {?>
-            <p style="color: darkred"> <?php echo $error['name'] ?> </p>
+            <p style="color: red"> <?php echo $error['name'] ?> </p>
         <?php }?>
         <br>
         <br>
         <span style="font-size: 16px">Ảnh Sinh Viên:</span>
         <input type="file" class="form-control" name="file">
+        <?php if (isset($error['file'])) {?>
+            <p style="color:red"> <?php echo $error['file'] ?> </p>
+        <?php }?>
         <br>
         <br>
         <span style="font-size: 16px">Địa chỉ Email:</span>
         <input type="text" class="form-control" name="email">
         <?php if (isset($error['email'])) {?>
-            <p style="color: darkred"> <?php echo $error['email'] ?> </p>
+            <p style="color: red"> <?php echo $error['email'] ?> </p>
         <?php }?>
         <br>
         <br>
         <span style="font-size: 16px">Số điện thoại:</span>
         <input type="text" class="form-control" name="phone">
         <?php if (isset($error['phone'])) {?>
-            <p style="color:darkred"> <?php echo $error['phone'] ?> </p>
+            <p style="color:red"> <?php echo $error['phone'] ?> </p>
         <?php }?>
         <br>
         <br>

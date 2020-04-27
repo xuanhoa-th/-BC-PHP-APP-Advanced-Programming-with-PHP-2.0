@@ -2,7 +2,7 @@
 if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $email = $_REQUEST['email'];
     function checkEmail($str){
-    $pattern = '/^([096|097|098|086|032|033|034|035|036|037|038|039|089|090|093|070|079|077|076|078|081|082|083|084|085]){1}([1-9]{7})$/';
+    $pattern ='/^[A-Za-z0-9_\s]{1,50}$/';
     if(!preg_match($pattern,$str)){
             echo "email chưa đúng định dạng";
 
