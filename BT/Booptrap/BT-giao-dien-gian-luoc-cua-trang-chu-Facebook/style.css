@@ -1,0 +1,16 @@
+.menu{
+	background-color: #4267b2;
+	width: 100%;
+	height: 3em;
+}
+.menu ul {
+	list-style: none;
+	display: inline-block;
+}
+.menu ul li{
+	float: left;
+	/* display: inline-block; */
+	line-height: 2.5;
+	/* word-spacing: 8px; */
+	margin-left: 23px;
+}
