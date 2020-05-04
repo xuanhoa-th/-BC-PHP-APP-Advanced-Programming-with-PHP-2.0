@@ -23,6 +23,7 @@ class LibraryDB
             array_push($lbArray, $lib);
         }
         return $lbArray;
+
     }
 
     function delete($id)
