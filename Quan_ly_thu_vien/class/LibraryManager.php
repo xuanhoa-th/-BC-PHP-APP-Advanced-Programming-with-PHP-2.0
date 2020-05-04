@@ -62,4 +62,7 @@ class LibraryManager
     {
         return $this->libraryDB->editBook2($code, $library);
     }
+    public function allStudent(){
+        return $this->libraryDB->allStudent();
+    }
 }

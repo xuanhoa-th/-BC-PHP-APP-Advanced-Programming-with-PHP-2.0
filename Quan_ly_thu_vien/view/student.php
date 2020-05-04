@@ -1,12 +1,14 @@
 <?php
 include "../database/DBConnect.php";
-include "../class/LibraryBook.php";
+
 include "../class/LibraryDB.php";
-include "../class/LibraryBook2.php";
+
+include "../class/LibraryStudent.php";
 include "../class/LibraryManager.php";
 
-$testDB = new LibraryManager();
-$library = $testDB->indexBook();
+$test = new LibraryManager();
+$library = $test->allStudent();
+
 ?>
 <?php
 include "../header.php";
@@ -34,14 +36,14 @@ include "../header.php";
         <?php foreach ($library as $item) {?>
             <tr>
                 <td> <?php echo $item->getCode() ?> </td>
-                <td> <?php echo $item->getName() ?></td>
-                <td> <?php echo $item->getAuthor() ?></td>
-                <td> <?php echo $item->getPrice() ?></td>
-                <td> <?php echo $item->getVersionNumber() ?></td>
-                <td> <?php echo $item->getPublish() ?></td>
-                <td><img width="50px" src="<?php echo '../uploads/'.$item->getImage() ?>" alt=""></td>
-                <td><a href="editBook.php?code=<?php echo $item->getCode() ?>" class="btn btn-success">Update</a></td>
-                <td><a onclick="return confirm('Ban chac chan xoa') " href="../action/deleteBook.php?code=<?php echo $item->getCode()?>" class="btn btn-danger">Delete</a></td>
+                <td> <?php echo  $item->getName() ?></td>
+                <td> <?php echo 3 ?></td>
+                <td> <?php echo 4 ?></td>
+                <td> <?php echo 5 ?></td>
+                <td> <?php echo 6 ?></td>
+                <td></td>
+                <td><a href="" class="btn btn-success">Update</a></td>
+                <td><a onclick="return confirm('Ban chac chan xoa') " href="" class="btn btn-danger">Delete</a></td>
             </tr>
         <?php } ?>
         </tbody>

@@ -130,5 +130,19 @@ class LibraryDB
         $stmt->bindParam(":status", $library->getStatus());
         $stmt->execute();
     }
+    public function allStudent()
+    {
+        $sql = " SELECT * FROM students";
+
+        $stmt = $this->conn->query($sql);
+
+        $result = $stmt->fetchAll();
+        $arrayStudent = [];
+        foreach ($result as $item) {
+            $lib = new LibraryStudent($item['code'], $item['name'], $item['birthday'], $item['address'], $item['email'], $item['phone'], $item['image']);
+            array_push($arrayStudent, $lib);
+        }
+        return $arrayStudent;
+    }
 
 }
