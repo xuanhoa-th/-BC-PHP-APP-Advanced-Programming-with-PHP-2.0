@@ -13,8 +13,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 </head>
-<body>
-	<div class="container">
+<body style = " font-family: "Open Sans", "Segoe UI", sans-serif">
+	<div class="container" >
 	<div  class="col-md-12" style="text-align: center;background-color: green; color: white; padding: 7px"> <h2>Library Manager</h2> </div>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
