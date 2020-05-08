@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $studentManager  = new StudentManager($pathFile);
     $studentManager->edit($student, $index);
 
-    header("Location: ../index.php");
+    header("Location: ../category.php");
 
 }
 

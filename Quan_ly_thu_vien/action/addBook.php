@@ -1,9 +1,9 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     include "../database/DBConnect.php";
-    include "../class/LibraryDB.php";
+    include "../class/CategoryDB.php";
     include "../class/LibraryBook2.php";
-    include "../class/LibraryManager.php";
+    include "../class/CategoryManager.php";
 
 
     $name = $_REQUEST['name'];
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 
     $book = new LibraryBook2($name,$author,$publish,$version_number,$price,$fileName,$category_id,$status);
-    $libraryManager = new LibraryManager();
+    $libraryManager = new CategoryManager();
     $libraryManager->addBook($book);
 
     header('Location: ../view/book.php');

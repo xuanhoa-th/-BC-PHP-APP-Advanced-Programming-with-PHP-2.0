@@ -2,7 +2,7 @@
 
 session_start();
 if (!$_SESSION['isAuth']) {
-    header('Location: index.php');
+    header('Location: category.php');
 }
 include "class/Student.php";
 include "class/StudentManager.php";

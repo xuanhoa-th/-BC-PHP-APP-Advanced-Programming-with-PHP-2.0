@@ -10,4 +10,4 @@ echo $index;
 
     $studentManager = new StudentManager("../data/data.json");
     $studentManager->deleteStudent($index);
-    header("Location: ../index.php");
+    header("Location: ../category.php");

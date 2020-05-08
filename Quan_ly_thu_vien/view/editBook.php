@@ -1,17 +1,17 @@
 <?php
 include "../database/DBConnect.php";
-include "../class/Library.php";
-include "../class/Library2.php";
-include "../class/LibraryDB.php";
+include "../class/Category.php";
+include "../class/CategoryDB.php";
 include "../class/LibraryBook.php";
-include "../class/LibraryBook2.php";
-include "../class/LibraryManager.php";
 
-$libraryManager = new LibraryManager();
+include "../class/CategoryManager.php";
+
+$libraryManager = new CategoryManager();
 $library = $libraryManager->index();
 
+
 $code  = $_REQUEST['code'];
-$libManager = new LibraryManager();
+$libManager = new CategoryManager();
 $library2 = $libManager->editBook($code);
 
 
@@ -61,7 +61,7 @@ include "../header.php";
                 <label class="input-group-text" for="inputGroupSelect01">category id</label>
             </div>
             <select class="custom-select" id="inputGroupSelect01" name="category_id">
-                <option selected>Choose...</option>
+               
                 <?php foreach ($library as $item) {?>
                     <option value="<?php echo $item ->getId() ?>"><?php echo $item ->getName() ?></option>
                 <?php } ?>

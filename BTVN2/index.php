@@ -5,8 +5,10 @@ include "class/LoginUserManager.php";
 
 //$loginUsers = new LoginUser("phu",123);
 $loginManager = new LoginUserManager("data/LoginData.json");
-$data = $loginManager->getLoginUserss();
 
+$data = $loginManager->getLoginUserss();
+var_dump($data);
+die();
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $email = $_POST['email'];

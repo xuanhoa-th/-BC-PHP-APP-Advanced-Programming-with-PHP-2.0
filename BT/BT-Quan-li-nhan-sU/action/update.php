@@ -18,5 +18,5 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $student->setdetail($detail);
 
     $studentManager-> updateStudent($index,$student);
-    header("Location: ../index.php");
+    header("Location: ../category.php");
 }

@@ -1,14 +1,13 @@
 <?php
 
 
-class Library
+class Category
 {
     protected $name;
     protected $id;
 
-    public function __construct($id,$name)
+    public function __construct($name)
     {
-        $this->id = $id;
         $this->name = $name;
     }
 
@@ -26,6 +25,11 @@ class Library
     public function getName()
     {
         return $this->name;
+    }
+
+    public function setId($id)
+    {
+        $this->id = $id;
     }
 
 }

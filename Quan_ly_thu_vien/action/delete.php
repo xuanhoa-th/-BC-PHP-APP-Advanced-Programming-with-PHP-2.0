@@ -1,9 +1,9 @@
 <?php
 include "../database/DBConnect.php";
-include "../class/Library.php";
-include "../class/LibraryDB.php";
-include "../class/LibraryManager.php";
+include "../class/Category.php";
+include "../class/CategoryDB.php";
+include "../class/CategoryManager.php";
 $id = $_REQUEST['id'];
-$liManager = new LibraryManager();
+$liManager = new CategoryManager();
 $liManager->destroy($id);
-header('Location: ../index.php');
+header('Location: ../category/list.php');

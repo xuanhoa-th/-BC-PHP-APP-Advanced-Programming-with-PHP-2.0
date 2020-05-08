@@ -1,13 +1,13 @@
 <?php
 
 include "../database/DBConnect.php";
-include "../class/Library.php";
+include "../class/Category.php";
 include "../class/Library2.php";
-include "../class/LibraryDB.php";
+include "../class/CategoryDB.php";
 include "../class/LibraryBook.php";
-include "../class/LibraryManager.php";
+include "../class/CategoryManager.php";
 
-$libraryManager = new LibraryManager();
+$libraryManager = new CategoryManager();
 $library = $libraryManager->index();
 
 ?>
@@ -63,7 +63,7 @@ include "../header.php";
                 <input type="radio" class="" name="status" value="0"> Hết sách
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
-            <a href="../index.php" class="btn btn-secondary">Cancel</a>
+            <a href="../category/list.php" class="btn btn-secondary">Cancel</a>
         </form>
     </div>
 <?php

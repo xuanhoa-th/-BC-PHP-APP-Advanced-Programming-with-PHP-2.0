@@ -51,7 +51,7 @@ class PostController
         } else {
             $id = $_POST['id'];
             $this->postDB->delete($id);
-            header('Location: index.php');
+            header('Location: category.php');
         }
     }
 
@@ -64,7 +64,7 @@ class PostController
             $id = $_POST['id'];
             $post = new Post($_POST['title'], $_POST['teaser'], $_POST['content'], $_POST['created']);
             $this->postDB->update($id, $post);
-            header('Location: index.php');
+            header('Location: category.php');
         }
     }
 }

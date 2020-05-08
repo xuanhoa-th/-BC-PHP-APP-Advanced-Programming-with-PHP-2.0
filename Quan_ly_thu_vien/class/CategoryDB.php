@@ -1,7 +1,7 @@
 <?php
 
 
-class LibraryDB
+class CategoryDB
 {
     protected $conn;
 
@@ -19,8 +19,9 @@ class LibraryDB
         $result = $stmt->fetchAll();
         $lbArray = [];
         foreach ($result as $item) {
-            $lib = new Library($item['id'], $item['name']);
-            array_push($lbArray, $lib);
+            $category = new Category($item['name']);
+            $category->setId($item['id']);
+            array_push($lbArray, $category);
         }
         return $lbArray;
 
@@ -42,21 +43,19 @@ class LibraryDB
         $stmt->execute();
     }
 
-    public function edit($id)
+    public function findById($id)
     {
         $sql = "SELECT * FROM categories WHERE id= $id ";
         $stmt = $this->conn->query($sql);
-        $result = $stmt->fetchAll();
-        $Array = [];
-        foreach ($result as $item) {
-            $lib = new Library($item['id'], $item['name']);
-            array_push($Array, $lib);
-        }
-        return $Array;
+        $result = $stmt->fetch();
+        $category = new Category($result['name']);
+        $category->setId($result['id']);
+        return $category;
     }
 
-    function edit2($id, $library)
+    function edit($id,$library)
     {
+
         $sql = "UPDATE categories SET name = :name WHERE id = $id";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(":name", $library->getName());
@@ -65,7 +64,7 @@ class LibraryDB
 
     public function getAllBook()
     {
-        $sql = " SELECT * FROM books";
+        $sql = " SELECT * FROM books ";
 
         $stmt = $this->conn->query($sql);
 
@@ -131,6 +130,7 @@ class LibraryDB
         $stmt->bindParam(":status", $library->getStatus());
         $stmt->execute();
     }
+
     public function allStudent()
     {
         $sql = " SELECT * FROM students";
@@ -144,6 +144,19 @@ class LibraryDB
             array_push($arrayStudent, $lib);
         }
         return $arrayStudent;
+    }
+
+    public function login()
+    {
+        $sql = " SELECT * FROM users ";
+        $stmt = $this->conn->query($sql);
+        $result = $stmt->fetchAll();
+        $login = [];
+        foreach ($result as $item) {
+            $lib = new Login($item['email'], $item['password']);
+            array_push($login, $lib);
+        }
+        return $login;
     }
 
 }

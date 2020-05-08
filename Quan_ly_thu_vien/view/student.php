@@ -1,19 +1,41 @@
 <?php
 include "../database/DBConnect.php";
 
-include "../class/LibraryDB.php";
+include "../class/CategoryDB.php";
 
 include "../class/LibraryStudent.php";
-include "../class/LibraryManager.php";
+include "../class/CategoryManager.php";
 
-$test = new LibraryManager();
+$test = new CategoryManager();
 $library = $test->allStudent();
 
 ?>
 <?php
 include "../header.php";
 ?>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.php">Home<span ></span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="view/book.php">Book</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="view/student.php">Student</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="#">Borrow books</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="#">Author</a>
+            </li>
 
+        </ul>
+
+    </div>
+</nav>
 <div class="container">
     <div class="col-md-12">
         <h3>Student List</h3>

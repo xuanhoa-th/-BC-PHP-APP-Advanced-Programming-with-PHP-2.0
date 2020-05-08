@@ -3,8 +3,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $key = $_REQUEST['search'];
     $conn = mysqli_connect('localhost', 'root', '', 'librarymanager');
     mysqli_set_charset($conn, 'utf8');
-    $res = mysqli_query($conn, "SELECT * FROM categories WHERE name = '$key'");
-    $kq = mysqli_fetch_assoc($res);
+    $res = mysqli_query($conn, "SELECT * FROM categories WHERE name = LIKE '%$key%'");
+    $kq = mysqli_fetch_all($res);
 }
 
 ?>
@@ -16,7 +16,7 @@ include "../header.php";
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-            <a href="../view/create.php" class="btn btn-success">Add new category</a>
+            <a href="create.php" class="btn btn-success">Add new category</a>
         </div>
 
         <div class="col-md-8">

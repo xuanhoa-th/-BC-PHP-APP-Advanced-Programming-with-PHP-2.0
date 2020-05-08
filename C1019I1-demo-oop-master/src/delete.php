@@ -10,4 +10,4 @@ $index = (int)$_GET['index'];
 $studentManager  =  new \Controller\StudentManager("../data.json");
 $studentManager->delete($index);
 
-header("Location: ../index.php");
+header("Location: ../category.php");

@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 			"phone" => $phone
 		];
 		update($student,"../data.json");
-		header("Location: ../index.php");
+		header("Location: ../category.php");
 }
 
  ?>

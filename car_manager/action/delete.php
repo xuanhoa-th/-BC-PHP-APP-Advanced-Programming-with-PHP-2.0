@@ -5,5 +5,5 @@ include "../class/CarManager.php";
 $id = $_REQUEST['id'];
 $carManager = new CarManager();
 $carManager->destroy($id);
-header('Location: ../index.php');
+header('Location: ../category.php');
 //var_dump($id);

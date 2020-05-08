@@ -9,5 +9,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $loginUser = new LoginUser($email,$password, $phone);
     $loginUserManager = new LoginUserManager("../data/LoginData.json");
     $loginUserManager->add($loginUser);
-    header('Location: ../index.php');
+    header('Location: ../category.php');
 }

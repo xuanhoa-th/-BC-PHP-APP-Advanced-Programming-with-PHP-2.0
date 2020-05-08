@@ -19,7 +19,7 @@ class CarManager
 //        var_dump($car);
 //        die();
         $this->carDB->add($car);
-        header('Location: ../index.php');
+        header('Location: ../category.php');
 
     }
 }

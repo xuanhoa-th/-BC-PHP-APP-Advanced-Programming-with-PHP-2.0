@@ -31,5 +31,5 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     }
 
     $studentManager->updateStudent($index, $student);
-    header("Location: ../index.php");
+    header("Location: ../category.php");
 }

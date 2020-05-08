@@ -1,17 +1,13 @@
 <?php
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     include "../database/DBConnect.php";
-    include "../class/Library2.php";
-    include "../class/LibraryDB.php";
-    include "../class/LibraryManager.php";
+    include "../class/Category.php";
+    include "../class/CategoryDB.php";
+    include "../class/CategoryManager.php";
     $name = $_REQUEST['name'];
-
-
-
-    $library = new Library2($name);
-    $libraryManager = new LibraryManager();
+    $library = new Category($name);
+    $libraryManager = new CategoryManager();
     $libraryManager->add($library);
-
-    header('Location: ../index.php');
+    header('Location: ../category/list.php');
 }

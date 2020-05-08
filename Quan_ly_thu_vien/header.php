@@ -16,30 +16,31 @@
 <body style = " font-family: "Open Sans", "Segoe UI", sans-serif">
 	<div class="container" >
 	<div  class="col-md-12" style="text-align: center;background-color: green; color: white; padding: 7px"> <h2>Library Manager</h2> </div>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="index.php">Home<span ></span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="view/book.php">Book</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link " href="view/student.php">Student</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link " href="#">Borrow books</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link " href="#">Author</a>
-      </li>
-      
-    </ul>
-    
-  </div>
-</nav>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="http://localhost:8080/PHP-Programming-2.0/Quan_ly_thu_vien/category/list.php">Home<span ></span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="book.php">Book</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="student.php">Student</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="#">Borrow books</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="#">Author</a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </nav>
 </div>
+
 
 	
 

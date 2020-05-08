@@ -25,76 +25,54 @@ class LibraryBook
         $this->status = $status;
     }
 
-    /**
-     * @return mixed
-     */
     public function getCode()
     {
         return $this->code;
     }
 
-    /**
-     * @return mixed
-     */
     public function getName()
     {
         return $this->name;
     }
 
-    /**
-     * @return mixed
-     */
     public function getPrice()
     {
         return $this->price;
     }
 
-    /**
-     * @return mixed
-     */
     public function getAuthor()
     {
         return $this->author;
     }
 
-    /**
-     * @return mixed
-     */
     public function getPublish()
     {
         return $this->publish;
     }
 
-    /**
-     * @return mixed
-     */
     public function getVersionNumber()
     {
         return $this->version_number;
     }
 
-    /**
-     * @return mixed
-     */
     public function getCategoryId()
     {
         return $this->category_id;
     }
 
-    /**
-     * @return mixed
-     */
     public function getImage()
     {
         return $this->image;
     }
 
-    /**
-     * @return mixed
-     */
     public function getStatus()
     {
         return $this->status;
+    }
+
+    public function setCode($code)
+    {
+        $this->code = $code;
     }
 
 

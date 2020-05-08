@@ -3,6 +3,6 @@ include "../function.php";
 $index = $_REQUEST['index'];
 echo $index;
 deleteStudent($index,"../data.json");
-header("Location: ../index.php");
+header("Location: ../category.php");
 
  ?>

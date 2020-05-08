@@ -1,20 +1,16 @@
 <?php
 include "../database/DBConnect.php";
 include "../class/LibraryBook.php";
-include "../class/Library.php";
-include "../class/LibraryDB.php";
-include "../class/LibraryBook2.php";
-include "../class/LibraryManager.php";
+include "../class/Category.php";
+include "../class/CategoryDB.php";
+include "../class/CategoryManager.php";
 
-$testDB = new LibraryManager();
+$testDB = new CategoryManager();
 $library = $testDB->indexBook();
-//$libraryManager = new LibraryManager();
-//$lib = $libraryManager->index();
 ?>
 <?php
 include "../header.php";
 ?>
-
 <div class="container">
     <div class="col-md-12">
         <h3>Book List</h3>

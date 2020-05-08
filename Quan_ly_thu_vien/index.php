@@ -1,78 +1,84 @@
 <?php
+
 include "database/DBConnect.php";
-include "class/Library.php";
-include "class/LibraryDB.php";
-include "class/LibraryManager.php";
+include "class/Category.php";
+include "class/CategoryDB.php";
+include "class/CategoryManager.php";
+include "action/users.php";
+include "class/Login.php";
 
-$libraryManager = new LibraryManager();
-$library = $libraryManager->index();
+
 
 ?>
-
-<?php 
-include "header.php";
-?>
-
-<div class="container">
-  <div class="row">
-   <div class="col-md-4">
-    <a href="view/create.php" class="btn btn-success">Add new category</a>
-  </div>
-
-  <div class="col-md-8">
-    <h4>Category List</h4>
-    <!-- ------------------- -->
-    <form class="form-inline my-2 my-lg-0" style="float: right; padding: 0em 17em 0em 0em;" method="post" action="view/serachCategory.php">
-      <input class="form-control mr-sm-2" type="text" name="search" >
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-    <!-- ------------------- -->
-    <table class="table table-responsive table-inverse">
-    <thead>
-      <tr>
-        <th>Code</th>
-        <th>Category Name</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($library as $item) {?>
-      <tr>
-        <td> <?php echo $item->getId() ?> </td>
-        <td> <?php echo $item->getName() ?></td>
-        <td><a href="view/editCategory.php?id=<?php echo $item->getId()?>" class="btn btn-success">Update</a></td>
-        <td><a onclick="return confirm('Ban chac chan xoa') " href="action/delete.php?id=<?php echo $item->getId()?>" class="btn btn-danger">Delete</a></td>
-      </tr>
-        <?php } ?>
-    </tbody>
-  </table>
-  </div>  
-  </div>
-  
-  
-</div>
-<nav aria-label="Page navigation example ">
-      <ul class="pagination" style="float: right; padding: 0em 30em 0em 0em;">
-        <li class="page-item" style="">
-          <a class="page-link" href="#" aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
-            <span class="sr-only">Previous</span>
-          </a>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item"><a class="page-link" href="#">4</a></li>
-        <li class="page-item"><a class="page-link" href="#">5</a></li>
-        <li class="page-item">
-          <a class="page-link" href="#" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-            <span class="sr-only">Next</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-
-<?php 
-include "footer.php";
-?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<section class="login-block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 login-sec">
+                <h2 class="text-center">Login</h2>
+                <form class="login-form" action="action/users.php" method="post">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1" class="text-uppercase">Email</label>
+                        <input type="text" class="form-control" placeholder="" name="email">
+                    </div>
+                    <?php if (isset($message)) { ?>
+                        <p style="color: red"> <?php echo $message ?></p>
+                    <?php } ?>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1" class="text-uppercase">Password</label>
+                        <input type="password" class="form-control" placeholder="" name="password">
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input">
+                            <small>Remember Me</small>
+                        </label>
+                        <button type="submit" class="btn btn-login float-right">Submit</button>
+                    </div>
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="" style="color: orange;">Create a new
+                                account</a>
+                        </li>
+                    </ul>
+                </form>
+                <div class="copy-text">Created with <i class="fa fa-heart"></i> by Grafreez</div>
+            </div>
+            <div class="col-md-8 banner-sec">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner" role="listbox">
+                        <div class="carousel-item active">
+                            <img class="d-block img-fluid" src="https://static.pexels.com/photos/33972/pexels-photo.jpg"
+                                 alt="First slide">
+                            <div class="carousel-caption d-none d-md-block">
+                                <div class="banner-text">
+                                    <h2>This is Heaven</h2>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                        nostrud exercitation</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</body>
+</html>

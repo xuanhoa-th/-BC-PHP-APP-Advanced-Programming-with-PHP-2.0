@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $studentManager  = new StudentManager($pathFile);
     $studentManager->add($student);
 
-    header("Location: ../index.php");
+    header("Location: ../category.php");
 }
 ?>
 
